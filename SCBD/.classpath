@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="dist/lib/AbsoluteLayout.jar"/>
+	<classpathentry kind="lib" path="dist/lib/postgresql-42.5.4.jar"/>
+	<classpathentry kind="lib" path="dist/lib/slf4j-api-2.0.11.jar"/>
+	<classpathentry kind="lib" path="dist/lib/slf4j-simple-2.0.11.jar"/>
+	<classpathentry kind="lib" path="dist/lib/sqlite-jdbc-3.44.1.0 (1).jar"/>
+	<classpathentry kind="lib" path="dist/lib/sqlite-jdbc-3.44.1.0.jar"/>
+	<classpathentry kind="lib" path="dist/SCBD.jar"/>
+	<classpathentry kind="lib" path="lib/AbsoluteLayout.jar"/>
+	<classpathentry kind="lib" path="lib/jasperreports-6.20.6.jar"/>
+	<classpathentry kind="lib" path="lib/jasperreports-fonts-6.20.6.jar"/>
+	<classpathentry kind="lib" path="lib/jasperreports-javaflow-6.20.6.jar"/>
+	<classpathentry kind="lib" path="lib/jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/ojdbc11.jar"/>
+	<classpathentry kind="lib" path="lib/postgresql-42.5.4.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-api-2.0.11.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-simple-2.0.11.jar"/>
+	<classpathentry kind="lib" path="lib/sqlite-jdbc-3.44.1.0 (1).jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

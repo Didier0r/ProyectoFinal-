@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/didie/Documents/Universidad/Netbeans/SCBD/SCBD.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="125"/><column_width id="3" width="2459"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,6:mainchofer"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="Clientes" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="52"/><column index="2" value="76"/><column index="3" value="56"/><column index="4" value="88"/><column index="5" value="98"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="SCBD" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="52"/><column index="2" value="103"/><column index="3" value="92"/><column index="4" value="101"/><column index="5" value="107"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="buses" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="52"/><column index="2" value="62"/><column index="3" value="73"/><column index="4" value="61"/><column index="5" value="52"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="chofer" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="52"/><column index="2" value="76"/><column index="3" value="94"/><column index="4" value="52"/><column index="5" value="82"/><column index="6" value="87"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="factura" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="52"/><column index="2" value="52"/><column index="3" value="76"/><column index="4" value="57"/><column index="5" value="106"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="viajes" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="52"/><column index="2" value="79"/><column index="3" value="87"/><column index="4" value="65"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="buses.sql">CREATE TABLE 'SCBD' (
+'id' INTEGER NOT NULL  PRIMARY KEY AUTOINCREMENT,
+'id_clientes' INTEGER NOT NULL  REFERENCES 'Clientes' ('id'),
+'id_chofer' INTEGER NOT NULL ,
+'id_destino' INTEGER NOT NULL  DEFAULT NULL REFERENCES 'viajes' ('id'),
+'numerobus' NUMERIC DEFAULT NULL
+);
+
+CREATE TABLE 'Clientes' (
+'id' INTEGER NOT NULL  PRIMARY KEY AUTOINCREMENT,
+'nombre' TEXT NOT NULL ,
+'email' TEXT NOT NULL ,
+'direccion' TEXT NOT NULL ,
+'id_factura' INTEGER DEFAULT NULL REFERENCES 'factura' ('id')
+);
+
+CREATE TABLE 'buses' (
+'id' INTEGER NOT NULL  PRIMARY KEY AUTOINCREMENT,
+'marca' TEXT(60) DEFAULT NULL,
+'asiento' NUMERIC DEFAULT NULL,
+'chapa' TEXT DEFAULT NULL,
+'ano' NUMERIC DEFAULT NULL
+);
+
+CREATE TABLE 'chofer' (
+'id' INTEGER NOT NULL  DEFAULT NULL PRIMARY KEY AUTOINCREMENT,
+'nombre' TEXT NOT NULL  DEFAULT 'NULL',
+'fechaNaci' NUMERIC DEFAULT NULL,
+'CI' NUMERIC(25) NOT NULL  DEFAULT NULL,
+'telefono' NUMERIC(25) DEFAULT NULL,
+'id_buses' INTEGER NOT NULL  REFERENCES 'buses' ('id')
+);
+
+CREATE TABLE 'viajes' (
+'id' INTEGER NOT NULL  DEFAULT NULL PRIMARY KEY AUTOINCREMENT,
+'destino ' TEXT NOT NULL  DEFAULT 'NULL',
+'id_buses' INTEGER NOT NULL  DEFAULT NULL REFERENCES 'buses' ('id') REFERENCES 'boletos ' ('id'),
+'origen' TEXT DEFAULT NULL
+);
+
+CREATE TABLE 'factura' (
+'id' INTEGER DEFAULT NULL PRIMARY KEY AUTOINCREMENT,
+'Ruc' INTEGER(20) NOT NULL  DEFAULT NULL,
+'nombre' TEXT(60) DEFAULT NULL,
+'fecha' NUMERIC DEFAULT NULL,
+'id_destino ' INTEGER NOT NULL  DEFAULT NULL REFERENCES 'viajes' ('id')
+);
+
+CREATE TABLE 'boletos ' (
+'id' INTEGER DEFAULT NULL PRIMARY KEY AUTOINCREMENT,
+'nombre ' TEXT DEFAULT NULL,
+'costo ' NUMERIC DEFAULT NULL,
+'numero de asiento ' NUMERIC DEFAULT NULL,
+'origen y destino ' TEXT DEFAULT NULL,
+'horario ' NUMERIC DEFAULT NULL,
+'fecha ' TEXT DEFAULT NULL
+);</sql><current_tab id="0"/></tab_sql></sqlb_project>
